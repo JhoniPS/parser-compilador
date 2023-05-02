@@ -20,7 +20,7 @@
      ID ::= a | b | ... | z
      DIGIT ::= 0 | 1 | ... | 9
 ```
-## Implementação na línguagem de programação ##
+## Implementação na linguagem de programação ##
 
  - No diretório **src\parser\IParser.java** encontra-se a interface do parser com nome **Iparser** .
 
@@ -39,6 +39,34 @@
 6. Parser
     - Inicia-se com uma palavra de entrada que é armazenada em uma string no construtor .
     - cada caracter dessa palavra será passada de acordo com a gramática, caso não aceite ela não é exibida.
+    - Como regra a arvore inicia como expr no construtor, caso a string seja aceita a arvore é completada.
+
+
+## Como executar o programa
+- No arquivo Main.java insira no vetor as palavra que queira testar.
+```java
+package parser;
+
+public class Main {
+    public static void main(String[] args) {
+       IParser parser = new Parser();
+
+       String[] testStrings = {
+            '''Insira aqui as palavras na inserção de vetor do tipo String, logo após execute!
+            
+               exemplo -> a+b*c-d ou b^-2'''
+       };
+
+       for(String testeString : testStrings) {
+            if(parser.parse(testeString)){ 
+                System.out.println("String "+ testeString +" é valido");
+            }       
+       }
+    }
+}
+
+
+```
 
  
  
