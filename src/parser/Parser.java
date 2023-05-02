@@ -3,14 +3,14 @@ package parser;
 public class Parser implements IParser {
     private String input;
     private int lookahead;
-    
+
     @Override
     public boolean parse(String string) {
         this.input = string;
         lookahead = 0;
         boolean result = expr();
         if (lookahead != input.length()) {
-            error("\n|String inválida: "+ this.input +" |caractere desconhecido: " + lookahead());
+            error("\n|String inválida: " + this.input + " |caractere desconhecido: " + lookahead());
         }
         return result;
     }
@@ -48,7 +48,7 @@ public class Parser implements IParser {
         for (int i = lookahead - 1; i >= 0 && input.charAt(i) != '\n'; i--) {
             col--;
         }
-        System.out.println(msg +" |Erro na coluna: " + col+"|");
+        System.out.println(msg + " |Erro na coluna: " + col + "|");
         System.exit(0);
     }
 
@@ -148,4 +148,3 @@ public class Parser implements IParser {
         return false;
     }
 }
-
